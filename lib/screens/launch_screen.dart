@@ -31,7 +31,7 @@ class LaunchScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 50, bottom: 30),
               child: Text(
                 'Football Draw Simulation',
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
               ),
@@ -59,11 +59,16 @@ class LaunchScreen extends StatelessWidget {
                   foregroundColor: (Colors.white),
                 ),
                 icon: const Icon(Icons.play_arrow),
-                label: const Text(
-                  "Enter     ",
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
+                label: Container(
+                  padding: const EdgeInsets.only(
+                    right: 40,
+                  ),
+                  child: const Text(
+                    "Enter",
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),

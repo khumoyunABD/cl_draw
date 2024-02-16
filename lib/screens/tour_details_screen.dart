@@ -1,7 +1,7 @@
 import 'package:cl_draw/models/tournament.dart';
 import 'package:flutter/material.dart';
 
-class TourDetailsScreen extends StatelessWidget {
+class TourDetailsScreen extends StatefulWidget {
   const TourDetailsScreen({
     super.key,
     required this.tournament,
@@ -9,6 +9,11 @@ class TourDetailsScreen extends StatelessWidget {
 
   final Tournament tournament;
 
+  @override
+  State<TourDetailsScreen> createState() => _TourDetailsScreenState();
+}
+
+class _TourDetailsScreenState extends State<TourDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     const totalTeams = [
@@ -22,7 +27,10 @@ class TourDetailsScreen extends StatelessWidget {
       'H',
     ];
     return Scaffold(
-      appBar: AppBar(title: Text(tournament.name)),
+      appBar: AppBar(
+        title: Text(widget.tournament.name),
+        centerTitle: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 25,
@@ -46,7 +54,7 @@ class TourDetailsScreen extends StatelessWidget {
               Column(
                 children: [
                   for (final team in totalTeams)
-                    Container(
+                    Padding(
                       padding: const EdgeInsets.symmetric(
                         vertical: 16,
                       ),
@@ -170,6 +178,94 @@ class TourDetailsScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
+                              TableRow(
+                                children: [
+                                  Container(
+                                    //margin: EdgeInsets.all(10),
+                                    height: 40,
+                                    width: 30,
+                                    alignment: Alignment.center,
+                                    child: TableCell(
+                                      child: Text(
+                                        '3',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleLarge!
+                                            .copyWith(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                  const TableCell(
+                                    child: Icon(Icons.place,
+                                        color: Colors.redAccent),
+                                  ),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: TableRowInkWell(
+                                      child: Text(
+                                        'Group $team - Third Team',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium!
+                                            .copyWith(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
+                                            ),
+                                      ),
+                                      onTap: () {},
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              TableRow(
+                                children: [
+                                  Container(
+                                    //margin: EdgeInsets.all(10),
+                                    height: 40,
+                                    width: 30,
+                                    alignment: Alignment.center,
+                                    child: TableCell(
+                                      child: Text(
+                                        '4',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleLarge!
+                                            .copyWith(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                  const TableCell(
+                                    child: Icon(Icons.place,
+                                        color: Colors.redAccent),
+                                  ),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: TableRowInkWell(
+                                      child: Text(
+                                        'Group $team - Fourth Team',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium!
+                                            .copyWith(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
+                                            ),
+                                      ),
+                                      onTap: () {},
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                         ],
@@ -179,6 +275,7 @@ class TourDetailsScreen extends StatelessWidget {
               ),
             ],
           ),
+          //],
         ),
       ),
     );
